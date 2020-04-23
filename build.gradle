@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id "org.flywaydb.flyway" version "6.0.0"
+    id "org.springframework.boot" version "2.1.0.RELEASE"
+    id 'checkstyle'
+}
+repositories {
+    mavenLocal()
+    maven {
+        url = 'https://jitpack.io'
+    }
+
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+}
+
+bootJar {
+    mainClassName = 'org.grakovne.retrobot.Application'
+}
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/retro_bot'
+    user = 'retro_bot'
+    password = 'retro_bot'
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.1.6.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:2.1.6.RELEASE'
+    compile group: 'org.zalando', name: 'logbook-spring-boot-starter', version: '1.13.0'
+    compile 'commons-io:commons-io:2.6'
+    compile 'io.springfox:springfox-swagger2:2.9.2'
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+    compile 'com.github.everit-org.json-schema:org.everit.json.schema:1.11.1'
+    compile 'org.postgresql:postgresql:42.2.5'
+    implementation 'com.github.pengrad:java-telegram-bot-api:4.4.0'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+
+}
+
+group = 'org.grakovne'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '11'

@@ -1,0 +1,29 @@
+bot:
+  token:
+
+server:
+  port: 5050
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/retro_bot
+    username: retro_bot
+    password: retro_bot
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database_platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: false
+        use_sql_comments: true
+        format_sql: true
+  flyway:
+    enabled: true
+
+logging:
+  file: application.log
