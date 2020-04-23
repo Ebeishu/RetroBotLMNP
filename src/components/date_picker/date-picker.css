@@ -1,0 +1,10 @@
+.date-picker-window {
+    position: absolute;
+    right: 38px;
+    top: 53px;
+}
+
+
+.date-picker-toggler {
+    cursor: pointer;
+}
